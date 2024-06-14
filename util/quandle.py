@@ -50,10 +50,9 @@ def is_sinquandle(op, R1, R2):
 # now check axioms 6, 7, 8, 9, 10 from def 6.1
 def is_stuquandle(op, R3, R4):
     n = len(op)
-    print("Check for stuquandle")
     for x in range(n):
         for y in range(n):
-            print("Axiom 6", op[R3[y][x]][R4[y][x]] == R4[op[x][y]][y], "values", x, y)
+            # print("Axiom 6", op[R3[y][x]][R4[y][x]] == R4[op[x][y]][y], "values", x, y)
             if (op[R3[y][x]][R4[y][x]] != R4[op[x][y]][y] or # axiom 6 def 6.1
                 R4[y][x] != R3[op[x][y]][y]): # axiom 7 
                 print("Failed either axiom 6 or 7")
