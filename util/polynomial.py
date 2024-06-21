@@ -106,7 +106,6 @@ class StuquandlePolynomial:
         
         for i in range(5):
             self.operations[i] = (self.compute_table(operations[i])[0], self.compute_table(operations[i])[1])
-        
     
     def print_stuquandle(self):
         terms = {}
@@ -148,10 +147,28 @@ class StuquandlePolynomial:
         print(final_output)
 
     
-    def print_substuquandle(self, image):
+    def print_substuquandle(self, image, operations):
         """Image is a list of elements [0, 1]"""
         terms = {}
         o = self.operations
+        q, R1, R2, R3, R4 = operations
+        
+        # print("Image:", image)
+        # need to close the image
+        for x in range(self.n):
+            for y in range(self.n):
+                if (x in image and y in image):
+                    if q[x][y] not in image:
+                        image.append(q[x][y])
+                    if R1[x][y] not in image:
+                        image.append(R1[x][y])
+                    if R2[x][y] not in image:   
+                        image.append(R2[x][y])
+                    if R3[x][y] not in image:
+                        image.append(R3[x][y])
+                    if R4[x][y] not in image:
+                        image.append(R4[x][y])
+        # print("Updated image:", image)
 
         for i in range(self.n):
             if i in image:
